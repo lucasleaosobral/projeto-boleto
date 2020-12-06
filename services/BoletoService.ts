@@ -46,8 +46,6 @@ export class BoletoService {
     public calculateBarra(barra) {
         barra = barra.replace(/[^0-9]/g,'');
     
-        if (barra.length < 47 ) barra = barra + '00000000000'.substr(0,47-barra.length);
-    
         if (barra.length != 47) {
             throw new BoletoError("Linha deve conter 47 digitos");
         } 
