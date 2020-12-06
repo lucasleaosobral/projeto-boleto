@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BoletoError } from "../errors/BoletoError";
+import { BoletoException } from "../exceptions/BoletoException";
 import { BoletoService } from "../services/BoletoService";
 
 const boletoService = new BoletoService();
@@ -10,7 +10,7 @@ export class BoletoController {
         try {
             
             if(!boletoService.validBarCode(request.params.linha)) {
-                throw new BoletoError("A linha não pode conter letras e/ou caracteres especiais");
+                throw new BoletoException("A linha não pode conter letras e/ou caracteres especiais");
             }
 
             const barra = boletoService.calculateBarra(request.params.linha);
@@ -23,7 +23,7 @@ export class BoletoController {
 
         } catch (error) {
             
-            if(error.name == "BoletoError") {
+            if(error.name == "BoletoException") {
                 
                 return response.status(400).json({
                     message: error.message

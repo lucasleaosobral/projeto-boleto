@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { BoletoController } from "./controllers/BoletoController";
+import { BoletoController } from "./src/controllers/BoletoController";
 
 const boletoController = new BoletoController();
 

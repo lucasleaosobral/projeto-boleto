@@ -1,13 +1,13 @@
 export class Boleto {
-    private barcode: number;
-    private amount: string;
-    private expirationDate: string;
+    private barcode!: string;
+    private amount!: string;
+    private expirationDate!: string;
 
-    public getBarcode(): number {
+    public getBarcode(): string {
         return this.barcode;
     }
 
-    public setBarcode(barcode: number): void {
+    public setBarcode(barcode: string): void {
         this.barcode = barcode;
     }
 
